@@ -33,8 +33,6 @@ class Square:
 
         self.__position = position
 
-
-
     def area(self):
         """method that returns area of the square.
 
