@@ -77,7 +77,7 @@ class Square:
     def __str__(self):
         """return the square in string format"""
 
-        if  self.__size == 0:
+        if self.__size == 0:
             return ""
         else:
             result = ""
