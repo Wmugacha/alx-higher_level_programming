@@ -12,7 +12,8 @@ class Square:
             size: represents the size of the square defined.
             position: represents x and y position of a square.
         Raises:
-            TypeError: if size is not an integer or if position is not a tuple of two integers.
+            TypeError: if size is not an integer or if position is not a
+                        tuple of two integers.
             ValueError: if size is less than zero.
         """
 
@@ -22,11 +23,12 @@ class Square:
             raise ValueError('size must be >= 0')
 
         self.__size = size
-        
-        if not isinstance(position, tuple) or len(position) != 2 \
-            or not isinstance(position[0], int) or not isinstance(position[1], int) \
-                or position[0] < 0 or position[1] < 0:
-                    raise TypeError('position must be a tuple of 2 positive integers')
+
+        if not isinstance(position, tuple) or len(position) != 2\
+            or not isinstance(position[0], int) or not\
+                isinstance(position[1], int) or position[0] < 0\
+                or position[1] < 0:
+            raise TypeError('position must be a tuple of 2 positive integers')
 
         self.__position = position
 
@@ -48,10 +50,10 @@ class Square:
     def position(self, value):
         """setter property to set the value of position attribute"""
 
-        if not isinstance(value, tuple) or len(value) != 2 \
-            or not isinstance(value[0], int) or not isinstance(value[1], int) \
+        if not isinstance(value, tuple) or len(value) != 2\
+            or not isinstance(value[0], int) or not isinstance(value[1], int)\
                 or value[0] < 0 or value[1] < 0:
-                    raise TypeError('position must be a tuple of 2 positive integers') 
+            raise TypeError('position must be a tuple of 2 positive integers')
 
         self.__position = value
 
