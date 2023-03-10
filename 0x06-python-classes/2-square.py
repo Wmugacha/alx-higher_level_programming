@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that defines a square"""
+"""Module that defines a Square"""
 
 
 class Square:
@@ -14,7 +14,6 @@ class Square:
             TypeError: if size is not an integer.
             ValueError: if size is less than zero.
         """
-
 
         if not isinstance(size, int):
             raise TypeError('size must be an integer')
