@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// Convert first argument to an integer
 
 const arg1 = Number.parseInt(process.argv[2]);
 
