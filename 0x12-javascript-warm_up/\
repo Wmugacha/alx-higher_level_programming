@@ -1,0 +1,14 @@
+#!/usr/bin/node
+// Script that prints an addition of two integers
+
+function add(a, b) {
+  if (isNaN(a)) || (isNaN(b)) {
+    return NaN;
+  }
+
+  const result = a + b;
+
+  console.log(result);
+
+  return(result);
+}
