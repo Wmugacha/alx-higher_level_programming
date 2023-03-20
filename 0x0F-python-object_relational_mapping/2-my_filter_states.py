@@ -13,12 +13,12 @@ if __name__ == '__main__':
     Access the database and get the states.
     """
     try:
-        db = MySQLdb.connect(
-            host="localhost",
-            user=argv[1],
-            port=3306,
-            passwd=argv[2],
-            db=argv[3]
+        db = MySQLdb.connect( \
+            host="localhost", \
+            user=argv[1], \
+            port=3306, \
+            passwd=argv[2], \
+            db=argv[3] \
         )
     except MySQLdb.Error:
         print("error connecting")
