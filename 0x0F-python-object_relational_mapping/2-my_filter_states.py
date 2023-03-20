@@ -24,7 +24,7 @@ if __name__ == '__main__':
         print("error connecting")
     cur = db.cursor()
     try:
-        cur.execute("SELECT * FROM states WHERE name = %s ORDER BY\
+        cur.execute("SELECT * FROM states WHERE name = %s ORDER BY \
                     states.id", (argv[4],))
         rows = cur.fetchall()
 
