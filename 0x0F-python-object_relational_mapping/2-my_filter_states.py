@@ -6,7 +6,7 @@ import sys
 
 if __name__ == "__main__":
     try:
-        connection = MySQLdb.connect(
+        db = MySQLdb.connect(
             host="localhost",
             user=sys.argv[1],
             passwd=sys.argv[2],
@@ -17,8 +17,8 @@ if __name__ == "__main__":
         print("Error connecting")
     cur = db.cursor()
     try:
-        cur.execute("SELECT * FROM states WHERE name = %s ORDER BY\
-        states.id", (sys.argv[4],))
+        cur.execute("SELECT * FROM states WHERE name = %s ORDER BY \
+        states.id ASC", (sys.argv[4],))
         rows = cur.fetchall()
         for row in rows:
             print(row)
