@@ -1,38 +1,28 @@
 #!/usr/bin/python3
-"""
-script that takes in an argument and displays
-all values in the states table of hbtn_0e_0_usa
-where name matches the argument
-
-"""
-from sys import argv
+""" selecting with mysqldb """
 import MySQLdb
+import sys
 
-if __name__ == '__main__':
-    """
-    Access the database and get the states.
-    """
+
+if __name__ == "__main__":
     try:
-        db = MySQLdb.connect(
+        connection = MySQLdb.connect(
             host="localhost",
-            user=argv[1],
+            user=sys.argv[1],
+            passwd=sys.argv[2],
             port=3306,
-            passwd=argv[2],
-            db=argv[3]
+            db=sys.argv[3]
         )
     except MySQLdb.Error:
-        print("error connecting")
-
+        print("Error connecting")
     cur = db.cursor()
-
     try:
-        cur.execute("SELECT * FROM states WHERE name = %s ORDER BY \
-        states.id", (argv[4],))
+        cur.execute("SELECT * FROM states WHERE name = %s ORDER BY\
+        states.id", (sys.argv[4],))
         rows = cur.fetchall()
         for row in rows:
             print(row)
     except MySQLdb.Error:
         print("Execution failed")
-
     cur.close()
     db.close()
