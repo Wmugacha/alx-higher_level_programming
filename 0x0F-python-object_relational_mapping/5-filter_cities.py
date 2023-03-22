@@ -31,8 +31,9 @@ if __name__ == '__main__':
 
     cur = db.cursor()
     cur.execute(query, args)
-    row = cur.fetchall()
-    print(row)
+    rows = cur.fetchall()
+    if rows is not None:
+        print(", ".join([row[0] for row in rows]))
 
     cur.close()
     db.close()
