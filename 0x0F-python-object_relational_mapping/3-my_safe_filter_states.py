@@ -12,8 +12,9 @@ if __name__ == '__main__':
     Access the database and get the states.
     """
     state_name = argv[4]
-    query = "SELECT * FROM states WHERE name LIKE BINARY '{}' \
-            ORDER BY id ASC".format(state_name)
+    query = "SELECT * FROM states WHERE name LIKE BINARY %s \
+            ORDER BY id ASC"
+    args = (state_name,)
 
     db = MySQLdb.connect(
             host="localhost",
@@ -24,7 +25,7 @@ if __name__ == '__main__':
             )
 
     cur = db.cursor()
-    cur.execute(query)
+    cur.execute(query, args)
     rows = cur.fetchall()
 
     for row in rows:
