@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Script that defines a State class that inherits
 from Base class to be used with MySQLAlchemy
