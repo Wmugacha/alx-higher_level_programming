@@ -1,5 +1,5 @@
 """
-File that defines a State class that inherits
+Script that defines a State class that inherits
 from Base class to be used with MySQLAlchemy
 ORM.
 """
