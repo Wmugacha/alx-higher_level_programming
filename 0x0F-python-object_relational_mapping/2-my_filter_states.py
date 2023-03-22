@@ -1,28 +1,33 @@
 #!/usr/bin/python3
-""" selecting with mysqldb """
+"""
+script that lists states from
+the database hbtn_0e_0_usa.
+
+"""
+from sys import argv
 import MySQLdb
-import sys
 
+if __name__ == '__main__':
+    """
+    Access the database and get the states.
+    """
+    state_name = argv[4]
 
-if __name__ == "__main__":
-    try:
-        db = MySQLdb.connect(
+    db = MySQLdb.connect(
             host="localhost",
-            user=sys.argv[1],
-            passwd=sys.argv[2],
-            port=3306,
-            db=sys.argv[3]
-        )
-    except MySQLdb.Error:
-        print("Error connecting")
+            user=argv[1],
+            passwd=argv[2],
+            db=argv[3],
+            port=3306
+            )
+
     cur = db.cursor()
-    try:
-        cur.execute("SELECT * FROM states WHERE name LIKE BINARY %(name)s \
-        ORDER BY states.id ASC", {'name': sys.argv[4]})
-        rows = cur.fetchall()
-        for row in rows:
-            print(row)
-    except MySQLdb.Error:
-        print("Execution failed")
+    cur.execute("SELECT * FROM states WHERE name LIKE
+                BINARY '{}' ORDER BY id".format(state_name))
+    rows = cur.fetchall()
+
+    for row in rows:
+        print(row)
+
     cur.close()
     db.close()
